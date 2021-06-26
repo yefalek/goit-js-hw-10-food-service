@@ -1,8 +1,7 @@
-import menuItem from './templates/menu.hbs';
-import menuElement from './menu.json';
+import foodCardTpl from './templates/menu.hbs';
+import cards from './menu.json';
 import {changeThemeDark, changeThemeLight,Theme} from './js/Theme';
 import './sass/main.scss';
-
 
 
 const input = document.querySelector('.theme-switch__toggle');
@@ -42,9 +41,9 @@ function showLocalStorageValue() {
      
 };
 
-const foodCardsMurkup=createFoodCards(menuElement)
+const foodCardsMurkup=createFoodCards(cards)
 menu.insertAdjacentHTML('beforeend',foodCardsMurkup);
 
-function createFoodCards(menuElement) {
-    return menuElement.map(menuItem).join('');
+function createFoodCards(cards) {
+    return cards.map(foodCardTpl).join('');
 }
