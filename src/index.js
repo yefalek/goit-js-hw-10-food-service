@@ -15,28 +15,36 @@ function inputOnChange(e) {
 
     const inputValue = e.target.checked;
     localStorage.setItem('position', inputValue);
-    if ( inputValue === true) {
-       changeThemeDark();
-       }
+    // if ( inputValue === true) {
+    //    changeThemeDark();
+    //    }
 
-    if (inputValue === false) {
-       changeThemeLight();
-        }
+    // if (inputValue === false) {
+    //    changeThemeLight();
+    //     }
+    inputValue === true ? changeThemeDark() : changeThemeLight();//заменил старый вариант на тернарник
 };
-
-
-
 function showLocalStorageValue() {
     const savedValue = localStorage.getItem('position');
 
-    if (savedValue ==='true') {
-        changeThemeDark();
-        input.checked=true;
-    }
-    if (savedValue === 'false') {
-        changeThemeLight();
-        input.checked=false;
-    }
+    // if (savedValue ==='true') {
+    //     changeThemeDark();
+    //     input.checked=true;
+    // }
+    // if (savedValue === 'false') {
+    //     changeThemeLight();
+    //     input.checked=false;
+    // }
+    savedValue === 'true' ? (changeThemeDark(), input.checked = true) : (changeThemeLight(), input.checked = false);  //заменил старый вариант на тернарник(предложеный вариант вами(ниже) -не работает)
+  
+         
+    // ********************************************************************************
+    // input.checked = Boolean(savedValue)
+    // // if (Boolean(savedValue))
+    // //     updateTheme(Theme.DARK, Theme.LIGHT)
+    // // else updateTheme(Theme.LIGHT,Theme.DARK)
+
+    // Boolean(savedValue) ? updateTheme(Theme.DARK, Theme.LIGHT) :updateTheme(Theme.LIGHT,Theme.DARK); //предложеный вариант в тернарнике
 
      
 };
